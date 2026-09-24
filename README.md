@@ -63,6 +63,18 @@ docker-compose up --build
 # dashboard http://localhost:3000
 ```
 
+### Secrets de production
+
+Copier `.env.example` vers `.env` et remplacer les valeurs avant le lancement :
+
+```powershell
+Copy-Item .env.example .env
+```
+
+Ne jamais publier `.env`, `backend/.dev-token` ou un token réel. La CI GitHub
+valide automatiquement le build Next et la compilation du backend sur chaque
+push et pull request.
+
 ## Endpoints ULTRA
 
 - GET /api/ultra/compare -> Walo vs Ultra (5x, 10x, 51x revenu)

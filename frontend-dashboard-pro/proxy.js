@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { isValidSession } from "./lib/session";
 
-export async function middleware(request) {
+export async function proxy(request) {
   if (request.nextUrl.pathname === "/dashboard.html" && !await isValidSession(request.cookies.get("ultra_session")?.value)) {
     return NextResponse.redirect(new URL("/", request.url));
   }
