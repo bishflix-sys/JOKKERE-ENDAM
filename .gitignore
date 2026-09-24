@@ -1,0 +1,6 @@
+backend/.dev-token
+backend/.venv/
+__pycache__/
+*.pyc
+frontend-dashboard-pro/node_modules/
+frontend-dashboard-pro/.next/
