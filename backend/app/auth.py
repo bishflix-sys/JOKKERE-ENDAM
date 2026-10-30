@@ -15,11 +15,12 @@ def load_token() -> str:
 
 
 def require_token(authorization: Annotated[str | None, Header()] = None) -> str:
-    expected = f"Bearer {load_token()}"
-    if authorization != expected:
+    token = load_token()
+    expected = f"Bearer {token}"
+    if not token or authorization != expected:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail="Token invalide ou absent",
             headers={"WWW-Authenticate": "Bearer"},
         )
-    return API_TOKEN
+    return token
